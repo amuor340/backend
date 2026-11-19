@@ -1,0 +1,16 @@
+from rest_framework.permissions import BasePermission
+from accounts.models import CustomUser
+
+
+class IsSuperAdminOrAcademicCoordinator(BasePermission):
+    """Allow write access to Super Admin, Academic Coordinator, Accountant"""
+    def has_permission(self, request, view):
+        return (
+            request.user.is_authenticated and
+            request.user.role in [
+                CustomUser.Role.SUPER_ADMIN,
+                CustomUser.Role.SCHOOL_ADMIN,
+                CustomUser.Role.ACADEMIC_COORDINATOR,
+                CustomUser.Role.ACCOUNTANT,
+            ]
+        )

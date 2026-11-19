@@ -1,0 +1,26 @@
+# Secrets and environment configuration
+.env
+.env.*
+!.env.example
+
+# Local databases and uploaded files
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Tooling and logs
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+.idea/
+.vscode/
+.DS_Store
